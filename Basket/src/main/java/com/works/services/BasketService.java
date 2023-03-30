@@ -63,11 +63,11 @@ public class BasketService {
         return map;
     }
 
-    public Product proSave( ) {
+    public Product proSave( Map map ) {
         Product product = new Product();
         product.setPrice( new Random(10000).nextInt() );
         product.setTitle( UUID.randomUUID().toString() );
-        return iProduct.proSave(product);
+        return iProduct.proSave(product, map);
     }
 
 }

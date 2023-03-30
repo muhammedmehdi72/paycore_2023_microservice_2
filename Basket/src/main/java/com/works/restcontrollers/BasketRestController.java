@@ -8,6 +8,9 @@ import com.works.services.BasketService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/basket")
@@ -22,8 +25,12 @@ public class BasketRestController {
     }
 
     @GetMapping("/proSave")
-    public Product proSave(){
-        return basketService.proSave();
+    public Product proSave(@RequestHeader Map map){
+        String token = map.get("authorization").toString();
+        System.out.println(token);
+        Map hm = new HashMap();
+        hm.put("Authorization", token);
+        return basketService.proSave(hm);
     }
 
     @PostMapping("/dummyAuth")

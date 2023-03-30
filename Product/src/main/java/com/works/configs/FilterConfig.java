@@ -33,30 +33,36 @@ public class FilterConfig implements Filter {
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse) servletResponse;
-
-        String token = req.getHeader("Authorization");
-        if ( token != null && !token.equals("") ) {
-            List<ServiceInstance> list = discoveryClient.getInstances("customer");
-            if ( list != null && list.size() > 0 ) {
-                ServiceInstance instance = list.get(0);
-                String url = instance.getUri().toString();
-                url = url + "/customer/status";
-                try {
-                    HttpHeaders headers = new HttpHeaders();
-                    headers.add("Authorization", token);
-                    HttpEntity httpEntity = new HttpEntity("", headers);
-                    restTemplate.postForEntity(url, httpEntity, Boolean.class);
-                    String traceId = tracer.currentSpan().context().traceId();
-                    res.setHeader("traceId", traceId);
-                    filterChain.doFilter(req, res);
-                }catch (Exception ex) {
+        String urlService = req.getRequestURI();
+        if ( urlService.equals("/product/list") ) {
+            String traceId = tracer.currentSpan().context().traceId();
+            res.setHeader("traceId", traceId);
+            filterChain.doFilter(req, res);
+        }else {
+            String token = req.getHeader("Authorization");
+            if (token != null && !token.equals("")) {
+                List<ServiceInstance> list = discoveryClient.getInstances("customer");
+                if (list != null && list.size() > 0) {
+                    ServiceInstance instance = list.get(0);
+                    String url = instance.getUri().toString();
+                    url = url + "/customer/status";
+                    try {
+                        HttpHeaders headers = new HttpHeaders();
+                        headers.add("Authorization", token);
+                        HttpEntity httpEntity = new HttpEntity("", headers);
+                        restTemplate.postForEntity(url, httpEntity, Boolean.class);
+                        String traceId = tracer.currentSpan().context().traceId();
+                        res.setHeader("traceId", traceId);
+                        filterChain.doFilter(req, res);
+                    } catch (Exception ex) {
+                        tokenError(req, res);
+                    }
+                } else {
                     tokenError(req, res);
                 }
-            }else {
+            } else {
                 tokenError(req, res);
             }
-        }else {
-            tokenError(req, res);
         }
     }
 
