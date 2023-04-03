@@ -8,6 +8,8 @@ import com.works.props.JmsData;
 import com.works.props.Product;
 import com.works.services.BasketService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,12 +19,19 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/basket")
+@RefreshScope
 public class BasketRestController {
 
     final BasketService basketService;
     final IDummyjson iDummyjson;
     final JmsTemplate jmsTemplate;
     final Gson gson;
+
+    @Value("${send.data}")
+    private String sendData;
+
+    @Value("${row.limit}")
+    private Integer limit;
 
     @GetMapping("/allList")
     public Object allList() {
@@ -56,8 +65,14 @@ public class BasketRestController {
             String stJmsData = gson.toJson(data);
             jmsTemplate.convertAndSend(stJmsData);
         }
-
         return "send..";
     }
+
+    @GetMapping("/sendData")
+    public String sendData() {
+        String dt = sendData + " - " + limit;
+        return dt;
+    }
+
 
 }
