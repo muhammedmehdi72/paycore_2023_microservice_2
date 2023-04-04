@@ -1,0 +1,516 @@
+{
+	"info": {
+		"_postman_id": "67353d57-71ab-44e9-b7f7-f2d0ad67b8a9",
+		"name": "PayCore Microservice -2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1939021"
+	},
+	"item": [
+		{
+			"name": "product/save",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWxpQG1haWwuY29tOjEyMzQ1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Bilgisayar RR\",\n    \"price\": 20000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1010/product/save",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1010",
+					"path": [
+						"product",
+						"save"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "product/save",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TV\",\n    \"price\": 10000\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9090/product/save",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product",
+								"save"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Mar 2023 19:06:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"pid\": 1,\n    \"title\": \"TV\",\n    \"price\": 10000\n}"
+				}
+			]
+		},
+		{
+			"name": "product/list",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWxpQG1haWwuY29tOjEyMzQ1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1010/product/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1010",
+					"path": [
+						"product",
+						"list"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "product/list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/product/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Mar 2023 19:09:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"pid\": 1,\n        \"title\": \"TV\",\n        \"price\": 10000\n    },\n    {\n        \"pid\": 2,\n        \"title\": \"Tablet\",\n        \"price\": 8000\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "product/profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWxpQG1haWwuY29tOjEyMzQ1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1010/product/profile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1010",
+					"path": [
+						"product",
+						"profile"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "product/list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9090/product/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"product",
+								"list"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 27 Mar 2023 19:09:37 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"pid\": 1,\n        \"title\": \"TV\",\n        \"price\": 10000\n    },\n    {\n        \"pid\": 2,\n        \"title\": \"Tablet\",\n        \"price\": 8000\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "basket/allList",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWxpQG1haWwuY29tOjEyMzQ1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:1010/basket/allList",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1010",
+					"path": [
+						"basket",
+						"allList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "basket/jmsSend",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWxpQG1haWwuY29tOjEyMzQ1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9095/basket/jmsSend",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"basket",
+						"jmsSend"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "basket/sendData",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWxpQG1haWwuY29tOjEyMzQ1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9095/basket/sendData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"basket",
+						"sendData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "basket/proSave",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWxpQG1haWwuY29tOjEyMzQ1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9095/basket/proSave",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"basket",
+						"proSave"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "basket/dummyAuth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWxpQG1haWwuY29tOjEyMzQ1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"kminchelle\",\n    \"password\": \"0lelplR\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:1010/basket/dummyAuth",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "1010",
+					"path": [
+						"basket",
+						"dummyAuth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/encrypt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "sa"
+				},
+				"url": {
+					"raw": "http://localhost:2020/encrypt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2020",
+					"path": [
+						"encrypt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/decrypt",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "c3b3f22128628f84c35d7586f4dc2f72c3786fde0197c8473d075bf714f6723550f762dc1a1a3a1eef60c9e78f9a671915a2b0690bbeb1844e22d9ceecacab6e"
+				},
+				"url": {
+					"raw": "http://localhost:2020/decrypt",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "2020",
+					"path": [
+						"decrypt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"zehra@mail.com\",\n    \"password\": \"12345\",\n    \"enable\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3030/customer/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"customer",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customer/status",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "12345",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "ali@mail.com",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3030/customer/status",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3030",
+					"path": [
+						"customer",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "actuator/refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:9095/actuator/refresh",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9095",
+					"path": [
+						"actuator",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
